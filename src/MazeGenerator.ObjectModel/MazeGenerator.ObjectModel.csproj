@@ -39,6 +39,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Maze\IMazeGenerator.cs" />
+    <Compile Include="Maze\IMazePainter.cs" />
+    <Compile Include="Maze\Maze.cs" />
+    <Compile Include="Models\Blob.cs" />
+    <Compile Include="Data\IBlobRepository.cs" />
+    <Compile Include="Data\IRepository.cs" />
+    <Compile Include="Maze\MazeCell.cs" />
+    <Compile Include="Maze\MazeWall.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

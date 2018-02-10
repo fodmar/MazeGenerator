@@ -8,11 +8,11 @@ namespace MazeGenerator.ObjectModel
         {
             this.X = x;
             this.Y = y;
-            this.Walls = new List<MazeWall>();
+            this.Walls = MazeWall.Top | MazeWall.Bottom | MazeWall.Left | MazeWall.Right;
         }
 
         public int X { get; private set; }
         public int Y { get; private set; }
-        public List<MazeWall> Walls { get; set; }
+        public MazeWall Walls { get; set; }
     }
 }
