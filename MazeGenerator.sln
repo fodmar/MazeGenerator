@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MazeGenerator.WebApp", "src\MazeGenerator.WebApp\MazeGenerator.WebApp.csproj", "{5F22A626-9B07-4DA5-B407-2990FF065C2E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{B070361A-74AA-47F3-9B8C-D06B3371A22E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MazeGenerator.ObjectModel", "src\MazeGenerator.ObjectModel\MazeGenerator.ObjectModel.csproj", "{7F85CC98-10D0-49AF-BD77-A49A9C3F63D4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5F22A626-9B07-4DA5-B407-2990FF065C2E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5F22A626-9B07-4DA5-B407-2990FF065C2E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5F22A626-9B07-4DA5-B407-2990FF065C2E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5F22A626-9B07-4DA5-B407-2990FF065C2E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7F85CC98-10D0-49AF-BD77-A49A9C3F63D4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7F85CC98-10D0-49AF-BD77-A49A9C3F63D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7F85CC98-10D0-49AF-BD77-A49A9C3F63D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7F85CC98-10D0-49AF-BD77-A49A9C3F63D4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{5F22A626-9B07-4DA5-B407-2990FF065C2E} = {B070361A-74AA-47F3-9B8C-D06B3371A22E}
+		{7F85CC98-10D0-49AF-BD77-A49A9C3F63D4} = {B070361A-74AA-47F3-9B8C-D06B3371A22E}
+	EndGlobalSection
+EndGlobal
