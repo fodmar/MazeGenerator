@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{7F85CC98-10D0-49AF-BD77-A49A9C3F63D4}</ProjectGuid>
+    <ProjectGuid>{F47BC130-7475-42CC-91E0-795A4D55D847}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>MazeGenerator.ObjectModel</RootNamespace>
-    <AssemblyName>MazeGenerator.ObjectModel</AssemblyName>
+    <RootNamespace>MazeGenerator.Generator</RootNamespace>
+    <AssemblyName>MazeGenerator.Generator</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -39,17 +39,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Persistence\IMazeGraphicRepository.cs" />
-    <Compile Include="Maze\IMazeGenerator.cs" />
-    <Compile Include="Maze\IMazePainter.cs" />
-    <Compile Include="Maze\Maze.cs" />
-    <Compile Include="Maze\MazeGraphic.cs" />
-    <Compile Include="Persistence\IRepository.cs" />
-    <Compile Include="Maze\MazeCell.cs" />
-    <Compile Include="Maze\MazeWall.cs" />
+    <Compile Include="DepthFirstMazeGenerator.cs" />
+    <Compile Include="IntactWallHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Utils\IRandom.cs" />
-    <Compile Include="Utils\Random.cs" />
+    <Compile Include="WallKnocker.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MazeGenerator.ObjectModel\MazeGenerator.ObjectModel.csproj">
+      <Project>{7f85cc98-10d0-49af-bd77-a49a9c3f63d4}</Project>
+      <Name>MazeGenerator.ObjectModel</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

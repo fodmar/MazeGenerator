@@ -9,6 +9,12 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{B070361A-74A
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MazeGenerator.ObjectModel", "src\MazeGenerator.ObjectModel\MazeGenerator.ObjectModel.csproj", "{7F85CC98-10D0-49AF-BD77-A49A9C3F63D4}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{0264DE10-EB9B-4326-9515-9DEA2BFCDF0B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MazeGenerator.Generator.Tests", "tests\MazeGenerator.Generator.Tests\MazeGenerator.Generator.Tests.csproj", "{E77BAE28-93EB-49D8-B498-085E52BDDCFF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MazeGenerator.Generator", "src\MazeGenerator.Generator\MazeGenerator.Generator.csproj", "{F47BC130-7475-42CC-91E0-795A4D55D847}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,6 +29,14 @@ Global
 		{7F85CC98-10D0-49AF-BD77-A49A9C3F63D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7F85CC98-10D0-49AF-BD77-A49A9C3F63D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7F85CC98-10D0-49AF-BD77-A49A9C3F63D4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E77BAE28-93EB-49D8-B498-085E52BDDCFF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E77BAE28-93EB-49D8-B498-085E52BDDCFF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E77BAE28-93EB-49D8-B498-085E52BDDCFF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E77BAE28-93EB-49D8-B498-085E52BDDCFF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F47BC130-7475-42CC-91E0-795A4D55D847}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F47BC130-7475-42CC-91E0-795A4D55D847}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F47BC130-7475-42CC-91E0-795A4D55D847}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F47BC130-7475-42CC-91E0-795A4D55D847}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -30,5 +44,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{5F22A626-9B07-4DA5-B407-2990FF065C2E} = {B070361A-74AA-47F3-9B8C-D06B3371A22E}
 		{7F85CC98-10D0-49AF-BD77-A49A9C3F63D4} = {B070361A-74AA-47F3-9B8C-D06B3371A22E}
+		{E77BAE28-93EB-49D8-B498-085E52BDDCFF} = {0264DE10-EB9B-4326-9515-9DEA2BFCDF0B}
+		{F47BC130-7475-42CC-91E0-795A4D55D847} = {B070361A-74AA-47F3-9B8C-D06B3371A22E}
 	EndGlobalSection
 EndGlobal
