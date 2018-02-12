@@ -43,7 +43,7 @@ namespace MazeGenerator.Generator
             Maze maze = new Maze(size);
             Stack<MazeCell> cells = new Stack<MazeCell>();
 
-            MazeCell currentCell = maze.Cells[this.random.Next(size)][this.random.Next(size)];
+            MazeCell currentCell = maze[this.random.Next(size)][this.random.Next(size)];
 
             int totalCells = size * size;
             int visitedCells = 1;

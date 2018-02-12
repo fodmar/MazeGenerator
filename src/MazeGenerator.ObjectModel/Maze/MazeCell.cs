@@ -14,5 +14,18 @@ namespace MazeGenerator.ObjectModel.Maze
         public int X { get; private set; }
         public int Y { get; private set; }
         public MazeWall Walls { get; set; }
+
+        public bool HasAllWalls
+        {
+            get
+            {
+                return this.Walls.HasFlag(MazeWall.Top | MazeWall.Bottom | MazeWall.Left | MazeWall.Right);
+            }
+        }
+
+        public void KnockDownWall(MazeWall wall)
+        {
+            this.Walls &= ~wall;
+        }
     }
 }
