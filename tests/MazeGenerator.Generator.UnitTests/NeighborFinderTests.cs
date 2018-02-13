@@ -51,7 +51,7 @@ namespace MazeGenerator.Generator.UnitTests
 
             NeighborMazeCell neighbor = this.neighborFinder.CheckUpperNeighbor(cell, maze);
             Assert.IsNotNull(neighbor);
-            Assert.AreEqual(Neighbor.Upper, neighbor.NeighborType);
+            Assert.AreEqual(MazeWall.Top, neighbor.CellWall);
         }
 
         [TestMethod]
@@ -81,7 +81,7 @@ namespace MazeGenerator.Generator.UnitTests
 
             NeighborMazeCell neighbor = this.neighborFinder.CheckBottomNeighbor(cell, maze);
             Assert.IsNotNull(neighbor);
-            Assert.AreEqual(Neighbor.Bottom, neighbor.NeighborType);
+            Assert.AreEqual(MazeWall.Bottom, neighbor.CellWall);
         }
 
         [TestMethod]
@@ -111,7 +111,7 @@ namespace MazeGenerator.Generator.UnitTests
 
             NeighborMazeCell neighbor = this.neighborFinder.CheckLeftNeighbor(cell, maze);
             Assert.IsNotNull(neighbor);
-            Assert.AreEqual(Neighbor.Left, neighbor.NeighborType);
+            Assert.AreEqual(MazeWall.Left, neighbor.CellWall);
         }
 
         [TestMethod]
@@ -141,7 +141,7 @@ namespace MazeGenerator.Generator.UnitTests
 
             NeighborMazeCell neighbor = this.neighborFinder.CheckRightNeighbor(cell, maze);
             Assert.IsNotNull(neighbor);
-            Assert.AreEqual(Neighbor.Right, neighbor.NeighborType);
+            Assert.AreEqual(MazeWall.Right, neighbor.CellWall);
         }
 
         [TestMethod]

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using MazeGenerator.ObjectModel;
 using MazeGenerator.ObjectModel.Maze;
 
 namespace MazeGenerator.Generator
@@ -43,7 +44,7 @@ namespace MazeGenerator.Generator
             if (cell.X > 0 &&
                 maze[cell.X - 1][cell.Y].HasAllWalls)
             {
-                return new NeighborMazeCell(cell, maze[cell.X - 1][cell.Y], Neighbor.Upper);
+                return new NeighborMazeCell(cell, maze[cell.X - 1][cell.Y], MazeWall.Top);
             }
 
             return null;
@@ -54,7 +55,7 @@ namespace MazeGenerator.Generator
             if (cell.X + 1 < maze.Length &&
                 maze[cell.X + 1][cell.Y].HasAllWalls)
             {
-                return new NeighborMazeCell(cell, maze[cell.X + 1][cell.Y], Neighbor.Bottom);
+                return new NeighborMazeCell(cell, maze[cell.X + 1][cell.Y], MazeWall.Bottom);
             }
 
             return null;
@@ -65,7 +66,7 @@ namespace MazeGenerator.Generator
             if (cell.Y > 0 &&
                 maze[cell.X][cell.Y - 1].HasAllWalls)
             {
-                return new NeighborMazeCell(cell, maze[cell.X][cell.Y - 1], Neighbor.Left);
+                return new NeighborMazeCell(cell, maze[cell.X][cell.Y - 1], MazeWall.Left);
             }
 
             return null;
@@ -76,7 +77,7 @@ namespace MazeGenerator.Generator
             if (cell.Y + 1 < maze[cell.X].Length &&
                 maze[cell.X][cell.Y + 1].HasAllWalls)
             {
-                return new NeighborMazeCell(cell, maze[cell.X][cell.Y + 1], Neighbor.Right);
+                return new NeighborMazeCell(cell, maze[cell.X][cell.Y + 1], MazeWall.Right);
             }
 
             return null;
