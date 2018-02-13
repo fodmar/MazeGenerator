@@ -8,9 +8,9 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace MazeGenerator.Generator.UnitTests
 {
     [TestClass]
-    public class IntactWallHelperTests
+    public class NeighborFinderTests
     {
-        private readonly IntactWallHelper intactWallHelper = new IntactWallHelper();
+        private readonly NeighborFinder neighborFinder = new NeighborFinder();
 
         [TestMethod]
         public void FindNeighborsWithAllWallIntact_RightBottomCornerCell_UpAndLeftNeighborReturned()
@@ -18,11 +18,12 @@ namespace MazeGenerator.Generator.UnitTests
             Maze maze = new Maze(4);
             MazeCell cell = maze[3][3];
 
-            List<MazeCell> neighbors = this.intactWallHelper.FindNeighborsWithAllWallIntact(cell, maze);
+            List<NeighborMazeCell> neighbors = this.neighborFinder.FindNeighborsWithAllWalls(cell, maze);
 
             Assert.AreEqual(2, neighbors.Count);
-            Assert.IsTrue(neighbors.Any(n => n.X == 2 && n.Y == 3)); // up
-            Assert.IsTrue(neighbors.Any(n => n.X == 3 && n.Y == 2)); // left
+            Assert.IsTrue(neighbors.All(n => n.Cell.X == 3 && n.Cell.Y == 3));
+            Assert.IsTrue(neighbors.Any(n => n.Neighbor.X == 2 && n.Neighbor.Y == 3)); // up
+            Assert.IsTrue(neighbors.Any(n => n.Neighbor.X == 3 && n.Neighbor.Y == 2)); // left
         }
 
         [TestMethod]
@@ -33,12 +34,13 @@ namespace MazeGenerator.Generator.UnitTests
 
             MazeCell cell = maze[1][1];
 
-            List<MazeCell> neighbors = this.intactWallHelper.FindNeighborsWithAllWallIntact(cell, maze);
+            List<NeighborMazeCell> neighbors = this.neighborFinder.FindNeighborsWithAllWalls(cell, maze);
 
             Assert.AreEqual(3, neighbors.Count);
-            Assert.IsTrue(neighbors.Any(n => n.X == 1 && n.Y == 0)); // left
-            Assert.IsTrue(neighbors.Any(n => n.X == 1 && n.Y == 2)); // right
-            Assert.IsTrue(neighbors.Any(n => n.X == 2 && n.Y == 1)); // bottom
+            Assert.IsTrue(neighbors.All(n => n.Cell.X == 1 && n.Cell.Y == 1));
+            Assert.IsTrue(neighbors.Any(n => n.Neighbor.X == 1 && n.Neighbor.Y == 0)); // left
+            Assert.IsTrue(neighbors.Any(n => n.Neighbor.X == 1 && n.Neighbor.Y == 2)); // right
+            Assert.IsTrue(neighbors.Any(n => n.Neighbor.X == 2 && n.Neighbor.Y == 1)); // bottom
         }
 
         [TestMethod]
@@ -47,7 +49,9 @@ namespace MazeGenerator.Generator.UnitTests
             Maze maze = new Maze(2);
             MazeCell cell = maze[1][0];
 
-            Assert.IsNotNull(this.intactWallHelper.CheckUpperNeighbor(cell, maze));
+            NeighborMazeCell neighbor = this.neighborFinder.CheckUpperNeighbor(cell, maze);
+            Assert.IsNotNull(neighbor);
+            Assert.AreEqual(Neighbor.Upper, neighbor.NeighborType);
         }
 
         [TestMethod]
@@ -56,7 +60,7 @@ namespace MazeGenerator.Generator.UnitTests
             Maze maze = new Maze(2);
             MazeCell cell = maze[0][0];
 
-            Assert.IsNull(this.intactWallHelper.CheckUpperNeighbor(cell, maze));
+            Assert.IsNull(this.neighborFinder.CheckUpperNeighbor(cell, maze));
         }
 
         [TestMethod]
@@ -66,7 +70,7 @@ namespace MazeGenerator.Generator.UnitTests
             maze[0][0].KnockDownWall(MazeWall.Right);
             MazeCell cell = maze[1][0];
 
-            Assert.IsNull(this.intactWallHelper.CheckUpperNeighbor(cell, maze));
+            Assert.IsNull(this.neighborFinder.CheckUpperNeighbor(cell, maze));
         }
 
         [TestMethod]
@@ -75,7 +79,9 @@ namespace MazeGenerator.Generator.UnitTests
             Maze maze = new Maze(2);
             MazeCell cell = maze[0][1];
 
-            Assert.IsNotNull(this.intactWallHelper.CheckBottomNeighbor(cell, maze));
+            NeighborMazeCell neighbor = this.neighborFinder.CheckBottomNeighbor(cell, maze);
+            Assert.IsNotNull(neighbor);
+            Assert.AreEqual(Neighbor.Bottom, neighbor.NeighborType);
         }
 
         [TestMethod]
@@ -84,7 +90,7 @@ namespace MazeGenerator.Generator.UnitTests
             Maze maze = new Maze(2);
             MazeCell cell = maze[1][1];
 
-            Assert.IsNull(this.intactWallHelper.CheckBottomNeighbor(cell, maze));
+            Assert.IsNull(this.neighborFinder.CheckBottomNeighbor(cell, maze));
         }
 
         [TestMethod]
@@ -94,7 +100,7 @@ namespace MazeGenerator.Generator.UnitTests
             maze[1][0].KnockDownWall(MazeWall.Right);
             MazeCell cell = maze[0][0];
 
-            Assert.IsNull(this.intactWallHelper.CheckBottomNeighbor(cell, maze));
+            Assert.IsNull(this.neighborFinder.CheckBottomNeighbor(cell, maze));
         }
 
         [TestMethod]
@@ -103,7 +109,9 @@ namespace MazeGenerator.Generator.UnitTests
             Maze maze = new Maze(2);
             MazeCell cell = maze[1][1];
 
-            Assert.IsNotNull(this.intactWallHelper.CheckLeftNeighbor(cell, maze));
+            NeighborMazeCell neighbor = this.neighborFinder.CheckLeftNeighbor(cell, maze);
+            Assert.IsNotNull(neighbor);
+            Assert.AreEqual(Neighbor.Left, neighbor.NeighborType);
         }
 
         [TestMethod]
@@ -112,7 +120,7 @@ namespace MazeGenerator.Generator.UnitTests
             Maze maze = new Maze(2);
             MazeCell cell = maze[0][0];
 
-            Assert.IsNull(this.intactWallHelper.CheckLeftNeighbor(cell, maze));
+            Assert.IsNull(this.neighborFinder.CheckLeftNeighbor(cell, maze));
         }
 
         [TestMethod]
@@ -122,7 +130,7 @@ namespace MazeGenerator.Generator.UnitTests
             maze[0][0].KnockDownWall(MazeWall.Bottom);
             MazeCell cell = maze[0][1];
 
-            Assert.IsNull(this.intactWallHelper.CheckLeftNeighbor(cell, maze));
+            Assert.IsNull(this.neighborFinder.CheckLeftNeighbor(cell, maze));
         }
 
         [TestMethod]
@@ -131,7 +139,9 @@ namespace MazeGenerator.Generator.UnitTests
             Maze maze = new Maze(2);
             MazeCell cell = maze[1][0];
 
-            Assert.IsNotNull(this.intactWallHelper.CheckRightNeighbor(cell, maze));
+            NeighborMazeCell neighbor = this.neighborFinder.CheckRightNeighbor(cell, maze);
+            Assert.IsNotNull(neighbor);
+            Assert.AreEqual(Neighbor.Right, neighbor.NeighborType);
         }
 
         [TestMethod]
@@ -140,7 +150,7 @@ namespace MazeGenerator.Generator.UnitTests
             Maze maze = new Maze(2);
             MazeCell cell = maze[0][1];
 
-            Assert.IsNull(this.intactWallHelper.CheckRightNeighbor(cell, maze));
+            Assert.IsNull(this.neighborFinder.CheckRightNeighbor(cell, maze));
         }
 
         [TestMethod]
@@ -150,7 +160,7 @@ namespace MazeGenerator.Generator.UnitTests
             maze[0][1].KnockDownWall(MazeWall.Top);
             MazeCell cell = maze[0][0];
 
-            Assert.IsNull(this.intactWallHelper.CheckRightNeighbor(cell, maze));
+            Assert.IsNull(this.neighborFinder.CheckRightNeighbor(cell, maze));
         }
     }
 }

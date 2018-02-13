@@ -40,7 +40,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DepthFirstMazeGenerator.cs" />
-    <Compile Include="IntactWallHelper.cs" />
+    <Compile Include="NeighborFinder.cs" />
+    <Compile Include="Neighbor.cs" />
+    <Compile Include="NeighborMazeCell.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WallKnocker.cs" />
   </ItemGroup>

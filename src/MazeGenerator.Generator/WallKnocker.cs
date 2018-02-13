@@ -5,7 +5,7 @@ namespace MazeGenerator.Generator
 {
     class WallKnocker
     {
-        public void KnockDownWallBetween(MazeCell first, MazeCell second)
+        public void KnockDownWallBetweenNeighbors(NeighborMazeCell neighborMazeCell)
         {
             throw new NotImplementedException();
         }

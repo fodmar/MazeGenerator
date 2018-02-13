@@ -8,14 +8,15 @@ namespace MazeGenerator.Generator
     public class DepthFirstMazeGenerator : IMazeGenerator
     {
         private readonly IRandom random;
-        private readonly IntactWallHelper intactWallHelper;
+
+        private readonly NeighborFinder neighborFinder;
         private readonly WallKnocker wallKnocker;
 
         public DepthFirstMazeGenerator(IRandom random)
         {
             this.random = random;
 
-            this.intactWallHelper = new IntactWallHelper();
+            this.neighborFinder = new NeighborFinder();
             this.wallKnocker = new WallKnocker();
         }
 
@@ -50,17 +51,17 @@ namespace MazeGenerator.Generator
 
             while (visitedCells < totalCells)
             {
-                List<MazeCell> neighbors = this.intactWallHelper.FindNeighborsWithAllWallIntact(currentCell, maze);
+                List<NeighborMazeCell> neighbors = this.neighborFinder.FindNeighborsWithAllWalls(currentCell, maze);
 
                 if (neighbors.Count > 0)
                 {
-                    MazeCell chosenNeighbor = neighbors[this.random.Next(neighbors.Count)];
+                    NeighborMazeCell chosenNeighbor = neighbors[this.random.Next(neighbors.Count)];
 
-                    this.wallKnocker.KnockDownWallBetween(currentCell, chosenNeighbor);
+                    this.wallKnocker.KnockDownWallBetweenNeighbors(chosenNeighbor);
 
                     visitedCells++;
                     cells.Push(currentCell);
-                    currentCell = chosenNeighbor;
+                    currentCell = chosenNeighbor.Neighbor;
                 }
                 else
                 {
