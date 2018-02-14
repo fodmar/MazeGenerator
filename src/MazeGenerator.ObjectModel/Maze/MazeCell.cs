@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace MazeGenerator.ObjectModel.Maze
+﻿namespace MazeGenerator.ObjectModel.Maze
 {
     public class MazeCell
     {
@@ -13,7 +11,7 @@ namespace MazeGenerator.ObjectModel.Maze
 
         public int X { get; private set; }
         public int Y { get; private set; }
-        public MazeWall Walls { get; set; }
+        public MazeWall Walls { get; private set; }
 
         public bool HasAllWalls
         {

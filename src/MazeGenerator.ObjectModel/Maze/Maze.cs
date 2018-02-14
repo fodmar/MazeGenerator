@@ -1,22 +1,21 @@
-﻿namespace MazeGenerator.ObjectModel.Maze
+﻿using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+using MazeGenerator.ObjectModel.Utils;
+
+namespace MazeGenerator.ObjectModel.Maze
 {
-    public class Maze
+    public class Maze : IEnumerable<MazeCell[]>
     {
-        private MazeCell[][] cells { get; set; }
+        private MazeCell[][] cells;
 
-        public Maze(int size)
+        public Maze(int rows, int cols)
         {
-            this.cells = new MazeCell[size][];
+            this.cells = ArrayUtils.Create(rows, cols, (x, y) => new MazeCell(x, y));
+        }
 
-            for (int i = 0; i < this.cells.Length; i++)
-            {
-                this.cells[i] = new MazeCell[size];
-
-                for (int j = 0; j < this.cells[i].Length; j++)
-                {
-                    this.cells[i][j] = new MazeCell(i, j);
-                }
-            }
+        public Maze(int size) : this(size, size)
+        {
         }
 
         public MazeCell[] this[int number]
@@ -37,6 +36,16 @@
             {
                 return this.cells.Length;
             }
+        }
+
+        public IEnumerator<MazeCell[]> GetEnumerator()
+        {
+            return this.cells.AsEnumerable().GetEnumerator();
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return this.cells.GetEnumerator();
         }
     }
 }
