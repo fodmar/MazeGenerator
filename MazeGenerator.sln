@@ -15,6 +15,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MazeGenerator.Generator", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MazeGenerator.Generator.UnitTests", "tests\MazeGenerator.Generator.UnitTests\MazeGenerator.Generator.UnitTests.csproj", "{C9BF291B-A611-4E47-ABE5-85A0865B2536}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MazeGenerator.Painter", "src\MazeGenerator.Painter\MazeGenerator.Painter.csproj", "{1508CA39-B432-49B2-8B25-624528D25352}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MazeGenerator.Persistence.FileSystem", "src\MazeGenerator.Persistence.FileSystem\MazeGenerator.Persistence.FileSystem.csproj", "{D106D0E6-A564-43E0-975A-01FB8D18C006}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -37,6 +41,14 @@ Global
 		{C9BF291B-A611-4E47-ABE5-85A0865B2536}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C9BF291B-A611-4E47-ABE5-85A0865B2536}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C9BF291B-A611-4E47-ABE5-85A0865B2536}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1508CA39-B432-49B2-8B25-624528D25352}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1508CA39-B432-49B2-8B25-624528D25352}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1508CA39-B432-49B2-8B25-624528D25352}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1508CA39-B432-49B2-8B25-624528D25352}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D106D0E6-A564-43E0-975A-01FB8D18C006}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D106D0E6-A564-43E0-975A-01FB8D18C006}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D106D0E6-A564-43E0-975A-01FB8D18C006}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D106D0E6-A564-43E0-975A-01FB8D18C006}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -46,5 +58,7 @@ Global
 		{7F85CC98-10D0-49AF-BD77-A49A9C3F63D4} = {B070361A-74AA-47F3-9B8C-D06B3371A22E}
 		{F47BC130-7475-42CC-91E0-795A4D55D847} = {B070361A-74AA-47F3-9B8C-D06B3371A22E}
 		{C9BF291B-A611-4E47-ABE5-85A0865B2536} = {0264DE10-EB9B-4326-9515-9DEA2BFCDF0B}
+		{1508CA39-B432-49B2-8B25-624528D25352} = {B070361A-74AA-47F3-9B8C-D06B3371A22E}
+		{D106D0E6-A564-43E0-975A-01FB8D18C006} = {B070361A-74AA-47F3-9B8C-D06B3371A22E}
 	EndGlobalSection
 EndGlobal
