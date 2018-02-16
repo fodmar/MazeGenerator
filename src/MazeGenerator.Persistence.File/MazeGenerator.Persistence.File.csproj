@@ -7,8 +7,8 @@
     <ProjectGuid>{D106D0E6-A564-43E0-975A-01FB8D18C006}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>MazeGenerator.Persistence.FileSystem</RootNamespace>
-    <AssemblyName>MazeGenerator.Persistence.FileSystem</AssemblyName>
+    <RootNamespace>MazeGenerator.Persistence.File</RootNamespace>
+    <AssemblyName>MazeGenerator.Persistence.File</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -39,7 +39,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FileSystemRepository.cs" />
+    <Compile Include="MazeGraphicRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

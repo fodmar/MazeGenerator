@@ -24,7 +24,7 @@ namespace MazeGenerator.Painter
                             Name = "temp",
                             GraphicType = "jpeg",
                             Content = memoryStream.ToArray()
-                        }
+                        };
                     }
                 }
             }

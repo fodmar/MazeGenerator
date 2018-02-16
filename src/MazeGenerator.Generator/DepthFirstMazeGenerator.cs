@@ -33,7 +33,7 @@ namespace MazeGenerator.Generator
            10.        push CurrentCell location on the CellStack 
            11.        make the new cell CurrentCell 
            12.        add 1 to VisitedCells 
-           13.		else 
+           13.     else 
            14.        pop the most recent cell entry off the CellStack 
            15.        make it CurrentCell 
            16.	   endIf 
