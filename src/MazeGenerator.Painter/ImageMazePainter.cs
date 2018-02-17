@@ -22,7 +22,7 @@ namespace MazeGenerator.Painter
                         return new MazeGraphic
                         {
                             Name = "temp",
-                            GraphicType = "jpeg",
+                            GraphicType = "image",
                             Content = memoryStream.ToArray()
                         };
                     }

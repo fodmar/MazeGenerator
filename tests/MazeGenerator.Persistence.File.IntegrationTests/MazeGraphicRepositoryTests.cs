@@ -40,12 +40,47 @@ namespace MazeGenerator.Persistence.File.IntegrationTests
         [Ignore]
         public async Task Delete()
         {
-            string name = "1";
+            string name = "test";
 
             await this.repository.Delete(new MazeGraphic
             {
                 Name = name
             });
+        }
+
+        [TestMethod]
+        [Ignore]
+        public async Task Create()
+        {
+            MazeGraphic graphic = new MazeGraphic
+            {
+                Content = Enumerable.Range(0, 100).Select(Convert.ToByte).ToArray(),
+                Name = "test",
+                GraphicType = "123"
+            };
+
+            await this.repository.Create(graphic);
+        }
+
+        [TestMethod]
+        [Ignore]
+        public async Task Read()
+        {
+            var graphics = (await this.repository.Read()).ToArray();
+        }
+
+        [TestMethod]
+        [Ignore]
+        public async Task Update()
+        {
+            MazeGraphic graphic = new MazeGraphic
+            {
+                Content = Enumerable.Range(0, 50).Select(Convert.ToByte).ToArray(),
+                Name = "test",
+                GraphicType = "123"
+            };
+
+            await this.repository.Update(graphic);
         }
     }
 }

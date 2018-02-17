@@ -11,9 +11,13 @@ namespace MazeGenerator.Persistence.File
     {
         private readonly string basePath;
 
+        private readonly ExtensionPicker extensionPicker;
+
         public MazeGraphicRepository(string basePath)
         {
             this.basePath = basePath;
+
+            this.extensionPicker = new ExtensionPicker();
         }
 
         public Task<IEnumerable<string>> GetNames()
@@ -31,22 +35,47 @@ namespace MazeGenerator.Persistence.File
                 return Task.FromResult<MazeGraphic>(null);
             }
 
-            return this.ReadMazeGraphicFromFile(name, fullPath);
+            return this.ReadMazeGraphicFromFile(fullPath);
         }
 
-        public Task<MazeGraphic> Create(MazeGraphic item)
+        public async Task<MazeGraphic> Create(MazeGraphic item)
         {
-            throw new System.NotImplementedException();
+            string fullPath = string.Format("{0}/{1}.{2}",
+                this.basePath,
+                item.Name,
+                this.extensionPicker.GetExtensionByType(item.GraphicType));
+
+            using (FileStream file = new FileStream(fullPath, FileMode.CreateNew, FileAccess.Write, FileShare.None))
+            {
+                await file.WriteAsync(item.Content, 0, item.Content.Length);
+            }
+
+            return item;
         }
 
         public Task<IEnumerable<MazeGraphic>> Read()
         {
-            throw new System.NotImplementedException();
+            return Task.FromResult(Directory
+                .EnumerateFiles(this.basePath)
+                .Select(async p => await ReadMazeGraphicFromFile(p))
+                .Select(t => t.Result));
         }
 
-        public Task<MazeGraphic> Update(MazeGraphic item)
+        public async Task<MazeGraphic> Update(MazeGraphic item)
         {
-            throw new System.NotImplementedException();
+            string fullPath = this.FindFullPathByName(item.Name);
+
+            if (string.IsNullOrEmpty(fullPath))
+            {
+                return null;
+            }
+
+            using (FileStream fileStream = new FileStream(fullPath, FileMode.Truncate, FileAccess.Write, FileShare.None))
+            {
+                await fileStream.WriteAsync(item.Content, 0, item.Content.Length);
+            }
+
+            return item;
         }
 
         public Task Delete(MazeGraphic item)
@@ -69,18 +98,22 @@ namespace MazeGenerator.Persistence.File
                 .SingleOrDefault();
         }
 
-        private async Task<MazeGraphic> ReadMazeGraphicFromFile(string name, string fullPath)
+        private async Task<MazeGraphic> ReadMazeGraphicFromFile(string fullPath)
         {
             using (FileStream fileStream = new FileStream(fullPath, FileMode.Open, FileAccess.Read, FileShare.Read))
             {
                 using (MemoryStream memoryStream = new MemoryStream())
                 {
-                    await fileStream.CopyToAsync(memoryStream);
+                    Task copyTask = fileStream.CopyToAsync(memoryStream);
+                    string extension = Path.GetExtension(fullPath);
+                    string name = Path.GetFileNameWithoutExtension(fullPath);
+
+                    await copyTask;
 
                     return new MazeGraphic
                     {
                         Name = name,
-                        GraphicType = Path.GetExtension(fullPath),
+                        GraphicType = this.extensionPicker.GetTypeByExtension(extension),
                         Content = memoryStream.ToArray()
                     };
                 }
