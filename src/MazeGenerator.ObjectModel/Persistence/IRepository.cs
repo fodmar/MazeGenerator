@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace MazeGenerator.ObjectModel
+namespace MazeGenerator.ObjectModel.Persistence
 {
     public interface IRepository<T>
     {

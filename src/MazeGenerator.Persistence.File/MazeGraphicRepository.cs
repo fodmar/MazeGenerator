@@ -2,8 +2,8 @@
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-using MazeGenerator.ObjectModel.Data;
 using MazeGenerator.ObjectModel.Maze;
+using MazeGenerator.ObjectModel.Persistence;
 
 namespace MazeGenerator.Persistence.File
 {

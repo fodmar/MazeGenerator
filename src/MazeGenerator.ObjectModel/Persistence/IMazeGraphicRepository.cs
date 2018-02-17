@@ -2,7 +2,7 @@
 using System.Threading.Tasks;
 using MazeGenerator.ObjectModel.Maze;
 
-namespace MazeGenerator.ObjectModel.Data
+namespace MazeGenerator.ObjectModel.Persistence
 {
     public interface IMazeGraphicRepository : IRepository<MazeGraphic>
     {
