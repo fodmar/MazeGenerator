@@ -8,7 +8,7 @@ using MazeGenerator.ObjectModel.Persistence;
 using MazeGenerator.ObjectModel.Utils;
 using MazeGenerator.Persistence.File;
 
-namespace MazeGenerator.WebApp.Installers
+namespace MazeGenerator.WebApp.IoC.Installers
 {
     public class MazeAppInstaller : IWindsorInstaller
     {

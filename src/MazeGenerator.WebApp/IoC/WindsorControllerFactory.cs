@@ -1,14 +1,13 @@
 using System;
-using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
 using Castle.Windsor;
 
-namespace MazeGenerator.WebApp.Plumbing
+namespace MazeGenerator.WebApp.IoC
 {
     public class WindsorControllerFactory : DefaultControllerFactory
     {
-        readonly IWindsorContainer container;
+        private readonly IWindsorContainer container;
 
         public WindsorControllerFactory(IWindsorContainer container)
         {
@@ -18,7 +17,9 @@ namespace MazeGenerator.WebApp.Plumbing
         protected override IController GetControllerInstance(RequestContext requestContext, Type controllerType)
         {            
 			if (controllerType != null && container.Kernel.HasComponent(controllerType))
-				return (IController)container.Resolve(controllerType);
+            {
+                return (IController)container.Resolve(controllerType);
+            }
 
 			return base.GetControllerInstance(requestContext, controllerType);
         }

@@ -11,10 +11,5 @@ namespace MazeGenerator.WebApp
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
         }
-
-        public static string GetMazeImagesDirectory()
-        {
-            return HttpContext.Current.Server.MapPath("~/mazes");
-        }
     }
 }

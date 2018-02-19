@@ -25,5 +25,10 @@
         {
             this.Walls &= ~wall;
         }
+
+        public bool HasWall(MazeWall walls)
+        {
+            return this.Walls.HasFlag(walls);
+        }
     }
 }

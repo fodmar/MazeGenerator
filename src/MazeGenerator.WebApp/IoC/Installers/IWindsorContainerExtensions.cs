@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using Castle.MicroKernel.Registration;
+﻿using Castle.MicroKernel.Registration;
 using Castle.Windsor;
 
-namespace MazeGenerator.WebApp.Installers
+namespace MazeGenerator.WebApp.IoC.Installers
 {
     public static class IWindsorContainerExtensions
     {

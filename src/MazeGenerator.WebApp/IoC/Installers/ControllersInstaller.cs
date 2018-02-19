@@ -3,10 +3,8 @@ using Castle.MicroKernel.Registration;
 using Castle.MicroKernel.SubSystems.Configuration;
 using Castle.Windsor;
 
-namespace MazeGenerator.WebApp.Installers
+namespace MazeGenerator.WebApp.IoC.Installers
 {
-    using Plumbing;
-
     public class ControllersInstaller : IWindsorInstaller
     {
         public void Install(IWindsorContainer container, IConfigurationStore store)
