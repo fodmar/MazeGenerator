@@ -1,1 +1,18 @@
-﻿<h2>Index</h2>
+﻿<div>
+    <input id="size" type="text" />
+    <button onclick="generate()">Generate</button>
+</div>
+
+<fieldset>
+    <legend>Image</legend>
+    <img id="image" />
+</fieldset>
+
+<script>
+    function generate() {
+        var size = document.getElementById("size");
+        var url = "@Url.Action("Generate", "Maze")?size=" + size.value;
+
+        document.getElementById("image").src = url;
+    };
+</script>

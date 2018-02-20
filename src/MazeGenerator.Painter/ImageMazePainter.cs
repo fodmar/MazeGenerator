@@ -1,7 +1,9 @@
-﻿using System.Drawing;
+﻿using System;
+using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
 using MazeGenerator.ObjectModel.Maze;
+using MazeGenerator.ObjectModel.Utils;
 
 namespace MazeGenerator.Painter
 {
@@ -21,7 +23,7 @@ namespace MazeGenerator.Painter
 
                         return new MazeGraphic
                         {
-                            Name = "temp",
+                            Name = Guid.NewGuid().ToString(GuidFormats.Digits),
                             GraphicType = "image",
                             Content = memoryStream.ToArray()
                         };

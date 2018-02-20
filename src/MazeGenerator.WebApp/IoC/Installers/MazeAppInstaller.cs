@@ -6,6 +6,7 @@ using MazeGenerator.Generator;
 using MazeGenerator.ObjectModel.Maze;
 using MazeGenerator.ObjectModel.Persistence;
 using MazeGenerator.ObjectModel.Utils;
+using MazeGenerator.Painter;
 using MazeGenerator.Persistence.File;
 
 namespace MazeGenerator.WebApp.IoC.Installers
@@ -16,6 +17,7 @@ namespace MazeGenerator.WebApp.IoC.Installers
         {
             container.RegisterType<IRandom, Random>();
             container.RegisterType<IMazeGenerator, DepthFirstMazeGenerator>();
+            container.RegisterType<IMazePainter, ImageMazePainter>();
 
             container.Register(Component
                 .For<IMazeGraphicRepository>()
