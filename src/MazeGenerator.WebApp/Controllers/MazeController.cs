@@ -26,6 +26,7 @@ namespace MazeGenerator.WebApp.Controllers
             return View();
         }
 
+        [OutputCache(NoStore = true, Duration = 0)]
         public async Task<ActionResult> Generate(int size)
         {
             Maze maze = this.mazeGenerator.Generate(size);
