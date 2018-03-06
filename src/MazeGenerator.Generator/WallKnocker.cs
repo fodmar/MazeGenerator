@@ -1,6 +1,7 @@
 ﻿using System;
 using MazeGenerator.ObjectModel;
 using MazeGenerator.ObjectModel.Maze;
+using MazeGenerator.ObjectModel.Utils;
 
 namespace MazeGenerator.Generator
 {
@@ -30,6 +31,17 @@ namespace MazeGenerator.Generator
                     neighborMazeCell.Neighbor.KnockDownWall(MazeWall.Left);
                     break;
             }
+        }
+
+        public void CreateEntrance(Maze maze, IRandom random)
+        {
+            maze[0][random.Next(maze[0].Length)].KnockDownWall(MazeWall.Top);
+        }
+
+        public void CreateExit(Maze maze, IRandom random)
+        {
+            int lastIndex = maze.Length - 1;
+            maze[lastIndex][random.Next(maze[lastIndex].Length)].KnockDownWall(MazeWall.Bottom);
         }
     }
 }

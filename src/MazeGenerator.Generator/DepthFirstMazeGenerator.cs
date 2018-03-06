@@ -69,6 +69,9 @@ namespace MazeGenerator.Generator
                 }
             }
 
+            this.wallKnocker.CreateEntrance(maze, this.random);
+            this.wallKnocker.CreateExit(maze, this.random);
+
             return maze;
         }
     }
