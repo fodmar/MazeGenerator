@@ -19,7 +19,12 @@ namespace MazeGenerator.Generator.UnitTests
 
             IMazeGenerator generator = new DepthFirstMazeGenerator(random);
 
-            Maze maze = generator.Generate(3);
+            MazeGenerationOptions options = new MazeGenerationOptions
+            {
+                Width = 3,
+                Height = 3
+            };
+            Maze maze = generator.Generate(options);
 
             Assert.AreEqual(3, maze.Length);
             Assert.IsTrue(maze.All(m => m.Length == 3));

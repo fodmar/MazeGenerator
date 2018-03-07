@@ -15,7 +15,7 @@ namespace MazeGenerator.Painter
         private const float marginX = 10f;
         private const float marginY = 10f;
 
-        public MazeGraphic Paint(Maze maze)
+        public MazeGraphic Paint(Maze maze, MazeGenerationOptions options)
         {
             using (Bitmap bitmap = new Bitmap((int)(sizeX + 2 * marginX), (int)(sizeY + 2 * marginY)))
             {

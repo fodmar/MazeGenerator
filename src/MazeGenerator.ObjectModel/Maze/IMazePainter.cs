@@ -2,6 +2,6 @@
 {
     public interface IMazePainter
     {
-        MazeGraphic Paint(Maze maze);
+        MazeGraphic Paint(Maze maze, MazeGenerationOptions options);
     }
 }

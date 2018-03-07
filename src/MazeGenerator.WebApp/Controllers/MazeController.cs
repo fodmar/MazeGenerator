@@ -27,10 +27,10 @@ namespace MazeGenerator.WebApp.Controllers
         }
 
         [OutputCache(NoStore = true, Duration = 0)]
-        public async Task<ActionResult> Generate(int size)
+        public async Task<ActionResult> Generate(MazeGenerationOptions options)
         {
-            Maze maze = this.mazeGenerator.Generate(size);
-            MazeGraphic graphic = this.painter.Paint(maze);
+            Maze maze = this.mazeGenerator.Generate(options);
+            MazeGraphic graphic = this.painter.Paint(maze, options);
 
             await this.mazeGraphicRepository.Create(graphic);
 

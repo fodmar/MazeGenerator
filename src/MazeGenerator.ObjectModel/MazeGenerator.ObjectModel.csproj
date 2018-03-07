@@ -39,6 +39,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Maze\MazeGenerationOptions.cs" />
     <Compile Include="Persistence\IMazeGraphicRepository.cs" />
     <Compile Include="Maze\IMazeGenerator.cs" />
     <Compile Include="Maze\IMazePainter.cs" />

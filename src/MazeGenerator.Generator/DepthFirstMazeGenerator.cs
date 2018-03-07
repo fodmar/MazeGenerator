@@ -39,14 +39,14 @@ namespace MazeGenerator.Generator
            16.	   endIf 
            17. endWhile 
          */
-        public Maze Generate(int size)
+        public Maze Generate(MazeGenerationOptions options)
         {
-            Maze maze = new Maze(size);
+            Maze maze = new Maze(options.Height, options.Width);
             Stack<MazeCell> cells = new Stack<MazeCell>();
 
-            MazeCell currentCell = maze[this.random.Next(size)][this.random.Next(size)];
+            MazeCell currentCell = maze[this.random.Next(options.Height)][this.random.Next(options.Width)];
 
-            int totalCells = size * size;
+            int totalCells = options.Height * options.Width;
             int visitedCells = 1;
 
             while (visitedCells < totalCells)

@@ -1,5 +1,8 @@
 ﻿<div>
-    <input id="size" type="text" />
+    <label for="width">Width:</label>
+    <input id="width" name="width" type="text" />
+    <label for="height">Height:</label>
+    <input id="height" name="height" type="text" />
     <button onclick="generate()">Generate</button>
 </div>
 
@@ -10,8 +13,9 @@
 
 <script>
     function generate() {
-        var size = document.getElementById("size");
-        var url = "@Url.Action("Generate", "Maze")?size=" + size.value;
+        var width = document.getElementById("width");
+        var height = document.getElementById("height");
+        var url = "@Url.Action("Generate", "Maze")?width=" + width.value + "&height=" + height.value;
 
         document.getElementById("image").src = url;
     };
