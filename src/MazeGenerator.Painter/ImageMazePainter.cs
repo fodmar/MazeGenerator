@@ -17,11 +17,31 @@ namespace MazeGenerator.Painter
 
         public MazeGraphic Paint(Maze maze, MazeGenerationOptions options)
         {
-            using (Bitmap bitmap = new Bitmap((int)(sizeX + 2 * marginX), (int)(sizeY + 2 * marginY)))
+            int width = 0;
+            int height = 0;
+            float cellWidth = 0;
+            float cellHeight = 0;
+
+            if (options.FixedSize)
+            {
+                width = (int)(sizeX + 2 * marginX);
+                height = (int)(sizeY + 2 * marginY);
+                cellWidth = sizeX / maze[0].Length;
+                cellHeight = sizeY / maze.Length;
+            }
+            else
+            {
+                cellWidth = 25f;
+                cellHeight = 25f;
+                width = (int)(marginX * 2 + cellWidth * maze[0].Length);
+                height = (int)(marginY * 2 + cellHeight * maze.Length);
+            }
+
+            using (Bitmap bitmap = new Bitmap(width, height))
             {
                 using (Graphics graphics = Graphics.FromImage(bitmap))
                 {
-                    this.DrawMaze(maze, graphics, sizeX / maze[0].Length, sizeY / maze.Length);
+                    this.DrawMaze(maze, graphics, cellWidth, cellHeight);
 
                     using (MemoryStream memoryStream = new MemoryStream())
                     {
