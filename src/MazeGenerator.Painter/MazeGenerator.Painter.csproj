@@ -41,6 +41,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ImageMazePainter.cs" />
+    <Compile Include="ImageSizes.cs" />
+    <Compile Include="ImageSizesHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
