@@ -21,6 +21,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MazeGenerator.Persistence.F
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MazeGenerator.Persistence.File.IntegrationTests", "tests\MazeGenerator.Persistence.File.IntegrationTests\MazeGenerator.Persistence.File.IntegrationTests.csproj", "{ACBD6F05-9177-4B54-8090-0A748073938D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MazeGenerator.ObjectModel.Tests", "tests\MazeGenerator.ObjectModel.Tests\MazeGenerator.ObjectModel.Tests.csproj", "{03FB002A-0BE1-41DA-90C9-6AC568FA1823}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -55,6 +57,10 @@ Global
 		{ACBD6F05-9177-4B54-8090-0A748073938D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ACBD6F05-9177-4B54-8090-0A748073938D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ACBD6F05-9177-4B54-8090-0A748073938D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{03FB002A-0BE1-41DA-90C9-6AC568FA1823}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{03FB002A-0BE1-41DA-90C9-6AC568FA1823}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{03FB002A-0BE1-41DA-90C9-6AC568FA1823}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{03FB002A-0BE1-41DA-90C9-6AC568FA1823}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -67,5 +73,6 @@ Global
 		{1508CA39-B432-49B2-8B25-624528D25352} = {B070361A-74AA-47F3-9B8C-D06B3371A22E}
 		{D106D0E6-A564-43E0-975A-01FB8D18C006} = {B070361A-74AA-47F3-9B8C-D06B3371A22E}
 		{ACBD6F05-9177-4B54-8090-0A748073938D} = {0264DE10-EB9B-4326-9515-9DEA2BFCDF0B}
+		{03FB002A-0BE1-41DA-90C9-6AC568FA1823} = {0264DE10-EB9B-4326-9515-9DEA2BFCDF0B}
 	EndGlobalSection
 EndGlobal

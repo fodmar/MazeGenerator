@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace MazeGenerator.ObjectModel
+namespace MazeGenerator.ObjectModel.Maze
 {
     [Flags]
     public enum MazeWall

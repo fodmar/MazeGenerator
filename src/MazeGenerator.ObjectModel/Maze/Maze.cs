@@ -5,28 +5,32 @@ using MazeGenerator.ObjectModel.Utils;
 
 namespace MazeGenerator.ObjectModel.Maze
 {
-    public class Maze : IEnumerable<MazeCell[]>
+    public class Maze : IEnumerable<MazeRow>
     {
-        private MazeCell[][] cells;
+        private MazeRow[] rows;
 
         public Maze(int rows, int cols)
         {
-            this.cells = ArrayUtils.Create(rows, cols, (x, y) => new MazeCell(x, y));
+            this.rows = new MazeRow[rows];
+            for (int i = 0; i < rows; i++)
+            {
+                this.rows[i] = new MazeRow(cols);
+            }
         }
 
         public Maze(int size) : this(size, size)
         {
         }
 
-        public MazeCell[] this[int number]
+        public MazeRow this[int number]
         {
             get
             {
-                return this.cells[number];
+                return this.rows[number];
             }
             set
             {
-                this.cells[number] = value;
+                this.rows[number] = value;
             }
         }
 
@@ -34,18 +38,18 @@ namespace MazeGenerator.ObjectModel.Maze
         {
             get
             {
-                return this.cells.Length;
+                return this.rows.Length;
             }
         }
 
-        public IEnumerator<MazeCell[]> GetEnumerator()
+        public IEnumerator<MazeRow> GetEnumerator()
         {
-            return this.cells.AsEnumerable().GetEnumerator();
+            return this.rows.AsEnumerable().GetEnumerator();
         }
 
         IEnumerator IEnumerable.GetEnumerator()
         {
-            return this.cells.GetEnumerator();
+            return this.rows.GetEnumerator();
         }
     }
 }

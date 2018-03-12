@@ -2,33 +2,29 @@
 {
     public class MazeCell
     {
-        public MazeCell(int x, int y)
+        private MazeWall walls;
+
+        public MazeCell()
         {
-            this.X = x;
-            this.Y = y;
-            this.Walls = MazeWall.Top | MazeWall.Bottom | MazeWall.Left | MazeWall.Right;
+            this.walls = MazeWall.Top | MazeWall.Bottom | MazeWall.Left | MazeWall.Right;
         }
 
-        public int X { get; private set; }
-        public int Y { get; private set; }
-        public MazeWall Walls { get; private set; }
-
-        public bool HasAllWalls
+        public virtual bool HasAllWalls
         {
             get
             {
-                return this.Walls.HasFlag(MazeWall.Top | MazeWall.Bottom | MazeWall.Left | MazeWall.Right);
+                return this.walls.HasFlag(MazeWall.Top | MazeWall.Bottom | MazeWall.Left | MazeWall.Right);
             }
         }
 
-        public void KnockDownWall(MazeWall wall)
+        public virtual void KnockDownWall(MazeWall wall)
         {
-            this.Walls &= ~wall;
+            this.walls &= ~wall;
         }
 
-        public bool HasWall(MazeWall walls)
+        public virtual bool HasWall(MazeWall walls)
         {
-            return this.Walls.HasFlag(walls);
+            return this.walls.HasFlag(walls);
         }
     }
 }
