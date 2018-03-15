@@ -4,20 +4,24 @@ using System.Linq;
 
 namespace MazeGenerator.ObjectModel.Maze
 {
-    public class MazeRow : IEnumerable<MazeCell>
+    public class MazeColumn : IEnumerable<MazeCell>
     {
         private MazeCell[] cells;
 
-        protected MazeRow()
+        protected MazeColumn()
         {
         }
 
-        public MazeRow(int size)
+        public MazeColumn(int size) : this(size, 0)
+        {
+        }
+
+        public MazeColumn(int size, int x)
         {
             this.cells = new MazeCell[size];
-            for (int i = 0; i < size; i++)
+            for (int y = 0; y < size; y++)
             {
-                this.cells[i] = new MazeCell();
+                this.cells[y] = new MazeCell(x, y);
             }
         }
 

@@ -4,6 +4,10 @@
     {
         public static readonly NullMazeCell Instance = new NullMazeCell();
 
+        private NullMazeCell() : base(-1, -1)
+        {
+        }
+
         public override bool HasAllWalls
         {
             get

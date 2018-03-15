@@ -5,16 +5,16 @@ using MazeGenerator.ObjectModel.Utils;
 
 namespace MazeGenerator.ObjectModel.Maze
 {
-    public class Maze : IEnumerable<MazeRow>
+    public class Maze : IEnumerable<MazeColumn>
     {
-        private MazeRow[] rows;
+        private MazeColumn[] columns;
 
         public Maze(int rows, int cols)
         {
-            this.rows = new MazeRow[rows];
-            for (int i = 0; i < rows; i++)
+            this.columns = new MazeColumn[cols];
+            for (int x = 0; x < cols; x++)
             {
-                this.rows[i] = new MazeRow(cols);
+                this.columns[x] = new MazeColumn(rows, x);
             }
         }
 
@@ -22,15 +22,16 @@ namespace MazeGenerator.ObjectModel.Maze
         {
         }
 
-        public MazeRow this[int number]
+        public MazeColumn this[int index]
         {
             get
             {
-                return this.rows[number];
-            }
-            set
-            {
-                this.rows[number] = value;
+                if (index < 0 || index >= this.Length)
+                {
+                    return NullMazeColumn.Instance;
+                }
+
+                return this.columns[index];
             }
         }
 
@@ -38,18 +39,18 @@ namespace MazeGenerator.ObjectModel.Maze
         {
             get
             {
-                return this.rows.Length;
+                return this.columns.Length;
             }
         }
 
-        public IEnumerator<MazeRow> GetEnumerator()
+        public IEnumerator<MazeColumn> GetEnumerator()
         {
-            return this.rows.AsEnumerable().GetEnumerator();
+            return this.columns.AsEnumerable().GetEnumerator();
         }
 
         IEnumerator IEnumerable.GetEnumerator()
         {
-            return this.rows.GetEnumerator();
+            return this.columns.GetEnumerator();
         }
     }
 }

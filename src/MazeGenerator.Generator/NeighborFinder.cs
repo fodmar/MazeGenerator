@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using MazeGenerator.ObjectModel;
 using MazeGenerator.ObjectModel.Maze;
 
@@ -9,78 +10,14 @@ namespace MazeGenerator.Generator
     {
         public List<NeighborMazeCell> FindNeighborsWithAllWalls(MazeCell cell, Maze maze)
         {
-            List<NeighborMazeCell> result = new List<NeighborMazeCell>();
-            NeighborMazeCell neighbor = null;
-
-            neighbor = this.CheckUpperNeighbor(cell, maze);
-            if (neighbor != null)
+            return new List<NeighborMazeCell>
             {
-                result.Add(neighbor);
+                new NeighborMazeCell(cell, maze[cell.X][cell.Y - 1], MazeWall.Bottom),
+                new NeighborMazeCell(cell, maze[cell.X][cell.Y + 1], MazeWall.Top),
+                new NeighborMazeCell(cell, maze[cell.X - 1][cell.Y], MazeWall.Left),
+                new NeighborMazeCell(cell, maze[cell.X + 1][cell.Y], MazeWall.Right),
             }
-
-            neighbor = this.CheckBottomNeighbor(cell, maze);
-            if (neighbor != null)
-            {
-                result.Add(neighbor);
-            }
-
-            neighbor = this.CheckLeftNeighbor(cell, maze);
-            if (neighbor != null)
-            {
-                result.Add(neighbor);
-            }
-
-            neighbor = this.CheckRightNeighbor(cell, maze);
-            if (neighbor != null)
-            {
-                result.Add(neighbor);
-            }
-
-            return result;
-        }
-
-        public NeighborMazeCell CheckUpperNeighbor(MazeCell cell, Maze maze)
-        {
-            if (cell.X > 0 &&
-                maze[cell.X - 1][cell.Y].HasAllWalls)
-            {
-                return new NeighborMazeCell(cell, maze[cell.X - 1][cell.Y], MazeWall.Top);
-            }
-
-            return null;
-        }
-
-        public NeighborMazeCell CheckBottomNeighbor(MazeCell cell, Maze maze)
-        {
-            if (cell.X + 1 < maze.Length &&
-                maze[cell.X + 1][cell.Y].HasAllWalls)
-            {
-                return new NeighborMazeCell(cell, maze[cell.X + 1][cell.Y], MazeWall.Bottom);
-            }
-
-            return null;
-        }
-
-        public NeighborMazeCell CheckLeftNeighbor(MazeCell cell, Maze maze)
-        {
-            if (cell.Y > 0 &&
-                maze[cell.X][cell.Y - 1].HasAllWalls)
-            {
-                return new NeighborMazeCell(cell, maze[cell.X][cell.Y - 1], MazeWall.Left);
-            }
-
-            return null;
-        }
-
-        public NeighborMazeCell CheckRightNeighbor(MazeCell cell, Maze maze)
-        {
-            if (cell.Y + 1 < maze[cell.X].Length &&
-                maze[cell.X][cell.Y + 1].HasAllWalls)
-            {
-                return new NeighborMazeCell(cell, maze[cell.X][cell.Y + 1], MazeWall.Right);
-            }
-
-            return null;
+            .FindAll(n => n.Neighbor.HasAllWalls);
         }
     }
 }

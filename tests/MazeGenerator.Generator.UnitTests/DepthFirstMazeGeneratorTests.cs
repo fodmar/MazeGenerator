@@ -30,16 +30,16 @@ namespace MazeGenerator.Generator.UnitTests
             Assert.IsTrue(maze.All(m => m.Length == 3));
             
             Assert.IsTrue(maze[0][0].HasWall(MazeWall.Left | MazeWall.Right));
-            Assert.IsTrue(maze[1][0].HasWall(MazeWall.Left | MazeWall.Right));
-            Assert.IsTrue(maze[2][0].HasWall(MazeWall.Left));
+            Assert.IsTrue(maze[0][1].HasWall(MazeWall.Left | MazeWall.Right));
+            Assert.IsTrue(maze[0][2].HasWall(MazeWall.Left));
 
-            Assert.IsTrue(maze[2][1].HasWall(MazeWall.Bottom | MazeWall.Right));
-            Assert.IsTrue(maze[1][1].HasWall(MazeWall.Left | MazeWall.Right));
-            Assert.IsTrue(maze[0][1].HasWall(MazeWall.Top | MazeWall.Left));
+            Assert.IsTrue(maze[1][2].HasWall(MazeWall.Top | MazeWall.Right));
+            Assert.IsTrue(maze[1][1].HasWall(MazeWall.Right | MazeWall.Left));
+            Assert.IsTrue(maze[1][0].HasWall(MazeWall.Bottom | MazeWall.Left));
 
-            Assert.IsTrue(maze[0][2].HasWall(MazeWall.Top | MazeWall.Right));
-            Assert.IsTrue(maze[1][2].HasWall(MazeWall.Left | MazeWall.Right));
-            Assert.IsTrue(maze[2][2].HasWall(MazeWall.Bottom | MazeWall.Right | MazeWall.Left));
+            Assert.IsTrue(maze[2][0].HasWall(MazeWall.Bottom | MazeWall.Right));
+            Assert.IsTrue(maze[2][1].HasWall(MazeWall.Left | MazeWall.Right));
+            Assert.IsTrue(maze[2][2].HasWall(MazeWall.Top | MazeWall.Left | MazeWall.Right));
         }
     }
 }

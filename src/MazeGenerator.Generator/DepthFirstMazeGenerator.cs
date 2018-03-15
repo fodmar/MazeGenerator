@@ -41,12 +41,12 @@ namespace MazeGenerator.Generator
          */
         public Maze Generate(MazeGenerationOptions options)
         {
-            Maze maze = new Maze(options.Height, options.Width);
+            Maze maze = new Maze(options.Width, options.Height);
             Stack<MazeCell> cells = new Stack<MazeCell>();
 
-            MazeCell currentCell = maze[this.random.Next(options.Height)][this.random.Next(options.Width)];
+            MazeCell currentCell = maze[this.random.Next(options.Width)][this.random.Next(options.Height)];
 
-            int totalCells = options.Height * options.Width;
+            int totalCells = options.Width * options.Height;
             int visitedCells = 1;
 
             while (visitedCells < totalCells)

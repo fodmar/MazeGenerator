@@ -10,7 +10,7 @@ namespace MazeGenerator.ObjectModel.Tests
         [TestMethod]
         public void IndexerShouldNotThrowException()
         {
-            MazeRow row = new MazeRow(5);
+            MazeColumn row = new MazeColumn(5);
 
             for (int i = -10; i < 10; i++)
             {

@@ -40,9 +40,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Maze\MazeGenerationOptions.cs" />
-    <Compile Include="Maze\MazeRow.cs" />
+    <Compile Include="Maze\MazeColumn.cs" />
     <Compile Include="Maze\NullMazeCell.cs" />
-    <Compile Include="Maze\NullMazeRow.cs" />
+    <Compile Include="Maze\NullMazeColumn.cs" />
     <Compile Include="Persistence\IMazeGraphicRepository.cs" />
     <Compile Include="Maze\IMazeGenerator.cs" />
     <Compile Include="Maze\IMazePainter.cs" />

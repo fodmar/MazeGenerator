@@ -53,7 +53,7 @@ namespace MazeGenerator.Painter
                 {
                     MazeCell currentCell = maze[i][j];
 
-                    if (currentCell.HasWall(MazeWall.Top))
+                    if (currentCell.HasWall(MazeWall.Bottom))
                     {
                         graphics.DrawLine(pen, currentPositionX, currentPositionY, currentPositionX + width, currentPositionY);
                     }
@@ -63,7 +63,7 @@ namespace MazeGenerator.Painter
                         graphics.DrawLine(pen, currentPositionX + width, currentPositionY, currentPositionX + width, currentPositionY + height);
                     }
 
-                    if (currentCell.HasWall(MazeWall.Bottom))
+                    if (currentCell.HasWall(MazeWall.Top))
                     {
                         graphics.DrawLine(pen, currentPositionX + width, currentPositionY + height, currentPositionX, currentPositionY + height);
                     }

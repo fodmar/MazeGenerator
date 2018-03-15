@@ -1,8 +1,12 @@
 ﻿namespace MazeGenerator.ObjectModel.Maze
 {
-    public class NullMazeRow : MazeRow
+    public class NullMazeColumn : MazeColumn
     {
-        public static readonly MazeRow Instance = new NullMazeRow();
+        public static readonly MazeColumn Instance = new NullMazeColumn();
+
+        private NullMazeColumn()
+        {
+        }
 
         public override int Length
         {

@@ -35,13 +35,13 @@ namespace MazeGenerator.Generator
 
         public void CreateEntrance(Maze maze, IRandom random)
         {
-            maze[0][random.Next(maze[0].Length)].KnockDownWall(MazeWall.Top);
+            //maze[0][random.Next(maze[0].Length)].KnockDownWall(MazeWall.Bottom);
         }
 
         public void CreateExit(Maze maze, IRandom random)
         {
             int lastIndex = maze.Length - 1;
-            maze[lastIndex][random.Next(maze[lastIndex].Length)].KnockDownWall(MazeWall.Bottom);
+            //maze[lastIndex][random.Next(maze[lastIndex].Length)].KnockDownWall(MazeWall.Top);
         }
     }
 }
