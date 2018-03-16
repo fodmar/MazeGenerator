@@ -47,7 +47,7 @@ namespace MazeGenerator.Painter
 
             for (int i = 0; i < maze.Length; i++)
             {
-                currentPositionX = sizes.MarginX;
+                currentPositionY = sizes.MarginY;
 
                 for (int j = 0; j < maze[i].Length; j++)
                 {
@@ -73,10 +73,10 @@ namespace MazeGenerator.Painter
                         graphics.DrawLine(pen, currentPositionX, currentPositionY + height, currentPositionX, currentPositionY);
                     }
 
-                    currentPositionX += sizes.CellWidth;
+                    currentPositionY += sizes.CellHeight;
                 }
 
-                currentPositionY += sizes.CellHeight;
+                currentPositionX += sizes.CellWidth;
             }
         }
     }

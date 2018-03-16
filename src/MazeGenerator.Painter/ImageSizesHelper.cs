@@ -17,15 +17,15 @@ namespace MazeGenerator.Painter
             {
                 result.Width = (int)(sizeX + 2 * marginX);
                 result.Height = (int)(sizeY + 2 * marginY);
-                result.CellWidth = (int)(sizeX / maze[0].Length);
-                result.CellHeight = (int)(sizeY / maze.Length);
+                result.CellWidth = (int)(sizeX / maze.Length);
+                result.CellHeight = (int)(sizeY / maze[0].Length);
             }
             else
             {
                 result.CellWidth = 25;
                 result.CellHeight = 25;
-                result.Width = (int)(marginX * 2 + result.CellWidth * maze[0].Length);
-                result.Height = (int)(marginY * 2 + result.CellHeight * maze.Length);
+                result.Width = (int)(marginX * 2 + result.CellWidth * maze.Length);
+                result.Height = (int)(marginY * 2 + result.CellHeight * maze[0].Length);
             }
 
             result.MarginX = marginX;
