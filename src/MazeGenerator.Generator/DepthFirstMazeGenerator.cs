@@ -44,7 +44,7 @@ namespace MazeGenerator.Generator
             Maze maze = new Maze(options.Width, options.Height);
             Stack<MazeCell> cells = new Stack<MazeCell>();
 
-            MazeCell currentCell = maze[this.random.Next(options.Width)][this.random.Next(options.Height)];
+            MazeCell currentCell = maze[this.random.Next(options.Height)][this.random.Next(options.Width)];
 
             int totalCells = options.Width * options.Height;
             int visitedCells = 1;

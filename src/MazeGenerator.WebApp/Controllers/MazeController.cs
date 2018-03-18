@@ -5,7 +5,7 @@ using MazeGenerator.ObjectModel.Persistence;
 
 namespace MazeGenerator.WebApp.Controllers
 {
-    public class MazeController : Controller
+    public class MazeController : BaseController
     {
         private readonly IMazeGenerator mazeGenerator;
         private readonly IMazeGraphicRepository mazeGraphicRepository;

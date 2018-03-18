@@ -40,13 +40,13 @@ namespace MazeGenerator.Generator
             int x = random.Next(maxX);
             int y = 0;
 
-            maze[0][0].KnockDownWall(MazeWall.Bottom);
+            maze[x][y].KnockDownWall(MazeWall.Bottom);
         }
 
         public void CreateExit(Maze maze, IRandom random)
         {
             int maxX = maze.Length;
-            int maxY = maze[0].Length;
+            int maxY = maze[0].Length - 1;
 
             int x = random.Next(maxX);
             int y = maxY;
